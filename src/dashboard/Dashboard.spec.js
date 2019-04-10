@@ -21,19 +21,14 @@ describe('Display Component', () => {
     display.getByText(/unlocked/i);
   });
 
-  it('displays if gate is open/closed and locked/unlocked', () => {
-    const component = render(<Display />);
-    component.getByText(/open|closed + locked|unlocked/gi);
-  });
-
   it('displays "closed" if the "closed" prop is true', () => {
     const component = render(<Display closed={true} />);
     component.getByText(/closed/i);
   });
 
-  it('displays open if closed property is false', () => {
-    const component = render(<Display closed={false} />);
-    component.getByText(/open/i);
+  it('displays if gate is open/closed and locked/unlocked', () => {
+    const component = render(<Display />);
+    component.getByText(/open|closed + locked|unlocked/gi);
   });
 
   it('displays "closed" if the "closed" prop is true', () => {
@@ -58,15 +53,20 @@ describe('Display Component', () => {
     expect(field).toHaveClass('red-led');
   });
 
+  it('has a className of "red-led" when closed', () => {
+    const component = render(<Display closed={false} />);
+    const field = component.getByTestId('position');
+    expect(field).toHaveClass('green-led');
+  });
+
   it('has a className of "red-led" when locked', () => {
     const component = render(<Display locked={false} />);
     const field = component.getByTestId('lock');
     expect(field).toHaveClass('green-led');
   });
 
-  it('has a className of "red-led" when closed', () => {
+  it('displays open if closed property is false', () => {
     const component = render(<Display closed={false} />);
-    const field = component.getByTestId('position');
-    expect(field).toHaveClass('green-led');
+    component.getByText(/open/i);
   });
 });
