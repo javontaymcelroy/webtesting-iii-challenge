@@ -77,4 +77,4 @@ The expected/assumed behavior of the application is listed below.
 
 This section is **optional** and not counted towards MVP. Start working on it after you're done with the main assignment.
 
-- add `Redux` and [read this example in the docs](https://testing-library.com/docs/example-react-redux) to learn how to write tests for it.
+- add `Redux` and [read this example in the docs](https://testing-library.com/docs/example-react-redux) to learn how to write tests for it..
